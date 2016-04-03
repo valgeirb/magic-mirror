@@ -1,0 +1,83 @@
+body {
+  margin: 0;
+  background-color: #000000;
+  color: #FFFFFF;
+  font-family: 'Roboto', sans-serif;
+}
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-content: flex-start;
+  align-items: flex-start;
+}
+.flex-item:nth-child(1) {
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
+  padding: 100px 0 0 100px;
+}
+.flex-item:nth-child(2) {
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
+  padding: 100px 100px 0 0;
+  text-align: right;
+}
+.weather-summary {
+  font-size: 60px;
+  margin-top: 20px;
+}
+.weather-sunrise-sunset {
+  font-size: 30px;
+  margin-top: 20px;
+}
+.weather-weekly {
+  font-size: 19px;
+  float: right;
+  min-height: 350px;
+  margin-top: 60px;
+  background: -webkit-linear-gradient(white, black);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.weather-weekly i {
+  display: inline;
+}
+.weather-weekly td {
+  text-align: left;
+  padding: 0px 10px;
+}
+.weather-temperature {
+  font-size: 40px;
+}
+.weather-temperature i {
+  font-size: 30px;
+}
+.weather-wind {
+  font-size: 30px;
+}
+.current-time {
+  font-size: 60px;
+  margin-top: 20px;
+}
+.current-date {
+  font-size: 30px;
+}
+.splash {
+  text-align: center;
+  margin: 10% 0 0 0;
+  box-sizing: border-box;
+}
+.splash .message {
+  font-size: 72px;
+  line-height: 72px;
+  text-transform: uppercase;
+}
+.splash .fa-circle-o-notch {
+  text-align: center;
+  display: inline-block;
+  font-size: 72px;
+  margin-top: 50px;
+}

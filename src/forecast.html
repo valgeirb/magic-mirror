@@ -1,0 +1,36 @@
+<template>
+  <require from="./filters/round"></require>
+  <require from="./filters/epoch"></require>
+  <require from="./filters/capitalize"></require>
+
+  <span class="weather-wind">
+    <i class="wi wi-strong-wind"></i>
+    ${ weather.currently.windSpeed | round: 1 }m/s
+  </span>
+
+  <span class="weather-sunrise-sunset">
+    <i class="wi wi-sunrise"></i>
+    ${ weather.daily.data[0].sunriseTime | epoch: 'HH:mm' }
+
+    <i class="wi wi-sunset"></i>
+    ${ weather.daily.data[0].sunsetTime | epoch: 'HH:mm' }
+  </span>
+
+  <div class="weather-summary">
+    <i class="wi ${weather.currently.icon}"></i>
+    ${ weather.currently.summary }
+  </div>
+
+  <div class="weather-temperature">
+    <i class="wi wi-thermometer"></i>
+    ${ weather.currently.temperature | round: 1 }° (${ weather.currently.apparentTemperature | round: 1 }°)
+  </div>
+
+  <table class="weather-weekly">
+    <tr repeat.for="day of weather.daily.data">
+      <td>${ day.sunriseTime | epoch: 'ddd' | capitalize }</td>
+      <td><i class="wi ${day.icon}"></i></td>
+      <td>${ day.temperatureMin | round: 1 }° til ${ day.temperatureMax | round: 1 }°</td>
+    </tr>
+  </table>
+</template>
