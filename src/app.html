@@ -1,3 +1,9 @@
 <template>
-  <router-view></router-view>
+  <require from="./custom-date"></require>
+  <require from="./forecast"></require>
+
+  <div class="flex-container">
+    <custom-date class="flex-item"></custom-date>
+    <forecast class="flex-item"></forecast>
+  </div>
 </template>
