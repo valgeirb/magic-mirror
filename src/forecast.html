@@ -2,13 +2,19 @@
   <require from="./filters/round"></require>
   <require from="./filters/epoch"></require>
   <require from="./filters/capitalize"></require>
+  <require from="./attributes/animate-on-change"></require>
 
-  <span class="weather-wind">
+  <div class="" if.bind="isLoading">
+    <i class="fa fa-circle-o-notch fa-spin fa-2x"></i>
+  </div>
+
+  <div if.bind="!isLoading">
+    <span class="weather-wind" animateonchange.bind="weather.currently.windspeed">
     <i class="wi wi-strong-wind"></i>
     ${ weather.currently.windSpeed | round: 1 }m/s
   </span>
 
-  <span class="weather-sunrise-sunset">
+    <span class="weather-sunrise-sunset" animateonchange.bind="weather.daily.data[0].sunriseTime || weather.daily.data[0].sunsetTime">
     <i class="wi wi-sunrise"></i>
     ${ weather.daily.data[0].sunriseTime | epoch: 'HH:mm' }
 
@@ -16,21 +22,27 @@
     ${ weather.daily.data[0].sunsetTime | epoch: 'HH:mm' }
   </span>
 
-  <div class="weather-summary">
-    <i class="wi ${weather.currently.icon}"></i>
-    ${ weather.currently.summary }
-  </div>
+    <div class="weather-summary" animateonchange.bind="weather.currently.icon || weather.currently.summary">
+      <i class="wi ${weather.currently.icon}"></i> ${ weather.currently.summary }
+    </div>
 
-  <div class="weather-temperature">
-    <i class="wi wi-thermometer"></i>
-    ${ weather.currently.temperature | round: 1 }° (${ weather.currently.apparentTemperature | round: 1 }°)
-  </div>
+    <div class="weather-temperature" animateonchange.bind="weather.currently.temperature">
+      <i class="wi wi-thermometer"></i> ${ weather.currently.temperature | round: 1 }° (${ weather.currently.apparentTemperature | round: 1 }°)
+    </div>
 
-  <table class="weather-weekly">
-    <tr repeat.for="day of weather.daily.data">
-      <td>${ day.sunriseTime | epoch: 'ddd' | capitalize }</td>
-      <td><i class="wi ${day.icon}"></i></td>
-      <td>${ day.temperatureMin | round: 1 }° til ${ day.temperatureMax | round: 1 }°</td>
-    </tr>
-  </table>
+    <!-- Long term forecast -->
+    <table class="weather-weekly">
+      <tr repeat.for="day of weather.daily.data">
+        <td>
+          ${ day.sunriseTime | epoch: 'ddd' | capitalize }
+        </td>
+        <td animateonchange.bind="day.icon">
+          <i class="wi ${day.icon}"></i>
+        </td>
+        <td animateonchange.bind="day.temperatureMax || day.temperatureMin">
+          ${ day.temperatureMin | round: 1 }° til ${ day.temperatureMax | round: 1 }°
+        </td>
+      </tr>
+    </table>
+  </div>
 </template>

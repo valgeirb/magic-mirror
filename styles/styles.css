@@ -38,9 +38,9 @@ body {
   float: right;
   min-height: 350px;
   margin-top: 60px;
-  background: -webkit-linear-gradient(white, black);
+  /*background: -webkit-linear-gradient(white, black);
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  -webkit-text-fill-color: transparent;*/
 }
 .weather-weekly i {
   display: inline;
@@ -80,4 +80,16 @@ body {
   display: inline-block;
   font-size: 72px;
   margin-top: 50px;
+}
+.fade-text-animation-add {
+  -webkit-animation: fadeIn 2s;
+  animation: fadeIn 2s;
+}
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

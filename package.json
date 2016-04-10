@@ -68,6 +68,7 @@
     "dependencies": {
       "aurelia-animator-css": "npm:aurelia-animator-css@^1.0.0-beta.1",
       "aurelia-bootstrapper": "npm:aurelia-bootstrapper@^1.0.0-beta.1",
+      "aurelia-dialog": "npm:aurelia-dialog@^0.5.10",
       "aurelia-fetch-client": "npm:aurelia-fetch-client@^1.0.0-beta.1",
       "aurelia-framework": "npm:aurelia-framework@^1.0.0-beta.1",
       "aurelia-history-browser": "npm:aurelia-history-browser@^1.0.0-beta.1",
@@ -82,6 +83,8 @@
       "cls-bluebird": "npm:cls-bluebird@^1.0.1",
       "fetch": "github:github/fetch@^0.10.1",
       "font-awesome": "npm:font-awesome@^4.5.0",
+      "google-auth-library": "npm:google-auth-library@^0.9.7",
+      "googleapis": "npm:googleapis@^4.0.0",
       "moment": "npm:moment@^2.11.1",
       "skycons": "npm:skycons@^1.0.0",
       "text": "github:systemjs/plugin-text@^0.0.3"
@@ -97,5 +100,8 @@
       }
     }
   },
-  "dependencies": {}
+  "dependencies": {
+    "google-auth-library": "^0.9.7",
+    "googleapis": "^4.0.0"
+  }
 }

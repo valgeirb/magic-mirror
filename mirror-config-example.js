@@ -2,8 +2,7 @@ var MirrorConfig = {
   forecast: {
     key: '<API key>',
     lang: '<language>',
-    units: '<units>',
-    latLong: '<latitude>, <longitude>'
+    units: '<units>'
   }
 }
 export {MirrorConfig};

@@ -1,13 +1,23 @@
 import {customElement} from 'aurelia-framework';
-import {inject} from 'aurelia-framework';
-import {HttpClient} from 'aurelia-http-client';
-import {MirrorConfig} from '../mirror-config';
+import {inject}        from 'aurelia-framework';
+import {HttpClient}    from 'aurelia-http-client';
+import {MirrorConfig}  from '../mirror-config';
+import {Geolocation}   from './geolocation';
 
-@inject(HttpClient, MirrorConfig)
+@inject(HttpClient, MirrorConfig, Geolocation)
 @customElement('forecast')
 export class Forecast {
-  constructor(http, config) {
-    this.config = config;
+  constructor(http, config, geo) {
+    this.http = http;
+    this.geo = geo;
+
+    // Config variables
+    this.key = config.forecast.key;
+    this.lang = config.forecast.lang;
+    this.units = config.forecast.units;
+
+    this.latitude = '';
+    this.longitude = '';
 
     // Mapping of Forecast API icon-names to icon classes
     this.weatherIcons = {
@@ -26,36 +36,35 @@ export class Forecast {
       'tornado': 'wi-forecast-io-tornado'
     };
 
-    this.apiUrl = 'https://api.forecast.io/forecast/' +
-      this.config.forecast.key + '/' +
-      this.config.forecast.latLong + '?lang=' +
-      this.config.forecast.lang + '&units=' +
-      this.config.forecast.units;
-
-    this.http = http;
+    this.apiUrl = '';
     this.weather = {};
+    this.isLoading = true;
   }
 
   // Get weather and update every 10 minutes
   attached() {
-    this.getWeather();
-    setInterval(() => this.getWeather(), 600000);
+    this.geo.getLocation().then(crd => {
+      this.getWeather(crd.coords);
+      setInterval(() => this.getWeather(crd.coords), 600000);
+    });
   }
 
   // Get weather information
-  getWeather() {
+  getWeather(crd) {
+    this.apiUrl = `https://api.forecast.io/forecast/${this.key}/${crd.latitude},${crd.longitude}?lang=${this.lang}&units=${this.units}`;
+
     return this.http.jsonp(this.apiUrl, 'callback')
       .then(forecast => {
-        console.log('Testing', forecast.response);
         this.weather = forecast.response;
-        this.setWeatherIconClasses();
+        this.setWeatherIconClasses(this.weather);
+        this.isLoading = false;
       });
   }
 
   // Change the weather icon classes.
-  setWeatherIconClasses() {
-    this.weather.currently.icon = this.weatherIcons[this.weather.currently.icon];
-    for (let day of this.weather.daily.data) {
+  setWeatherIconClasses(weather) {
+    weather.currently.icon = this.weatherIcons[weather.currently.icon];
+    for (let day of weather.daily.data) {
       day.icon = this.weatherIcons[day.icon];
     }
   }
