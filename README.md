@@ -2,7 +2,13 @@
 
 This project is built using the [Aurelia](http://www.aurelia.io/) platform. It includes a simple white-on-black interface that currently displays the time and date along with forecast information.
 
-> To keep up to date on [Aurelia](http://www.aurelia.io/), please visit and subscribe to [the official blog](http://blog.durandal.io/). If you have questions, we invite you to [join us on Gitter](https://gitter.im/aurelia/discuss). If you would like to have deeper insight into our development process, please install the [ZenHub](https://zenhub.io) Chrome Extension and visit any of our repository's boards. You can get an overview of all Aurelia work by visiting [the framework board](https://github.com/aurelia/framework#boards).
+## Prerequisites
+Before getting started with the app, you must first configure some things.
+
+1. Get yourself a Forecast API key from their [website](https://developer.forecast.io/).
+2. Rename the `mirror-config-example.js` to `mirror-config.js`
+3. Replace the example values in the file with your API key, preferred units and language.
+4. The `custom-date.js` class uses Moment with the Icelandic language, you can edit that like you want.
 
 ## Running The App
 
@@ -85,52 +91,6 @@ You can also unbundle using the command bellow:
 The configuration is done by ```bundles.json``` file.
 ##### Optional
 Under ```options``` of ```dist/aurelia``` add ```rev: true``` to add bundle file revision/version.
-
-## Running The Unit Tests
-
-To run the unit tests, first ensure that you have followed the steps above in order to install all dependencies and successfully build the library. Once you have done that, proceed with these additional steps:
-
-1. Ensure that the [Karma](http://karma-runner.github.io/) CLI is installed. If you need to install it, use the following command:
-
-  ```shell
-  npm install -g karma-cli
-  ```
-2. Install Aurelia libs for test visibility:
-
-```shell
-jspm install aurelia-framework
-jspm install aurelia-http-client
-jspm install aurelia-router
-```
-3. You can now run the tests with this command:
-
-  ```shell
-  karma start
-  ```
-
-## Running The E2E Tests
-Integration tests are performed with [Protractor](http://angular.github.io/protractor/#/).
-
-1. Place your E2E-Tests into the folder ```test/e2e/src```
-2. Install the necessary webdriver
-
-  ```shell
-  gulp webdriver-update
-  ```
-
-3. Configure the path to the webdriver by opening the file ```protractor.conf.js``` and adjusting the ```seleniumServerJar``` property. Typically its only needed to adjust the version number.
-
-4. Make sure your app runs and is accessible
-
-  ```shell
-  gulp watch
-  ```
-
-5. In another console run the E2E-Tests
-
-  ```shell
-  gulp e2e
-  ```
 
 ## Exporting bundled production version
 A gulp task is already configured for that. Use the following command to export the app:

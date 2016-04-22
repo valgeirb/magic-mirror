@@ -83,10 +83,7 @@
       "cls-bluebird": "npm:cls-bluebird@^1.0.1",
       "fetch": "github:github/fetch@^0.10.1",
       "font-awesome": "npm:font-awesome@^4.5.0",
-      "google-auth-library": "npm:google-auth-library@^0.9.7",
-      "googleapis": "npm:googleapis@^4.0.0",
       "moment": "npm:moment@^2.11.1",
-      "skycons": "npm:skycons@^1.0.0",
       "text": "github:systemjs/plugin-text@^0.0.3"
     },
     "devDependencies": {
@@ -101,7 +98,5 @@
     }
   },
   "dependencies": {
-    "google-auth-library": "^0.9.7",
-    "googleapis": "^4.0.0"
   }
 }

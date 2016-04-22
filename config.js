@@ -34,8 +34,6 @@ System.config({
     "core-js": "npm:core-js@1.2.6",
     "fetch": "github:github/fetch@0.10.1",
     "font-awesome": "npm:font-awesome@4.5.0",
-    "google-auth-library": "npm:google-auth-library@0.9.7",
-    "googleapis": "npm:googleapis@4.0.0",
     "moment": "npm:moment@2.12.0",
     "skycons": "npm:skycons@1.0.0",
     "text": "github:systemjs/plugin-text@0.0.3",
@@ -113,6 +111,9 @@ System.config({
     },
     "github:twbs/bootstrap@3.3.6": {
       "jquery": "github:components/jquery@2.2.1"
+    },
+    "npm:asap@1.0.0": {
+      "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:asn1.js@4.5.2": {
       "assert": "github:jspm/nodelibs-assert@0.1.0",
@@ -632,6 +633,10 @@ System.config({
       "systemjs-json": "github:systemjs/plugin-json@0.1.0",
       "util": "github:jspm/nodelibs-util@0.1.0"
     },
+    "npm:google-client-api@1.0.4": {
+      "promise": "npm:promise@6.1.0",
+      "scriptjs": "npm:scriptjs@2.5.8"
+    },
     "npm:google-p12-pem@0.1.0": {
       "fs": "github:jspm/nodelibs-fs@0.1.2",
       "node-forge": "npm:node-forge@0.6.39"
@@ -853,6 +858,9 @@ System.config({
     "npm:process@0.11.2": {
       "assert": "github:jspm/nodelibs-assert@0.1.0"
     },
+    "npm:promise@6.1.0": {
+      "asap": "npm:asap@1.0.0"
+    },
     "npm:pseudomap@1.0.2": {
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
@@ -967,6 +975,9 @@ System.config({
     },
     "npm:ripemd160@1.0.1": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
+      "process": "github:jspm/nodelibs-process@0.1.2"
+    },
+    "npm:scriptjs@2.5.8": {
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:sha.js@2.4.5": {
