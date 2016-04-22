@@ -2,6 +2,8 @@
 
 This project is built using the [Aurelia](http://www.aurelia.io/) platform. It includes a simple white-on-black interface that currently displays the time and date along with forecast information.
 
+![magic mirror screenshot](screenshot.png "Magic Mirror screenshot")
+
 ## Prerequisites
 Before getting started with the app, you must first configure some things.
 
