@@ -9,6 +9,7 @@ Before getting started with the app, you must first configure some things.
 2. Rename the `mirror-config-example.js` to `mirror-config.js`
 3. Replace the example values in the file with your API key, preferred units and language.
 4. The `custom-date.js` class uses Moment with the Icelandic language, you can edit that like you want.
+5. Pull requests are encouraged =)
 
 ## Running The App
 
