@@ -2,8 +2,8 @@ import {customElement} from 'aurelia-framework';
 import moment          from 'moment';
 import is              from 'moment/locale/is';
 
-@customElement('custom-date')
-export class CustomDate {
+@customElement('date')
+export class Date {
   constructor() {
     this.updateDate();
     setInterval(() => this.updateDate(), 1000);
