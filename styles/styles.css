@@ -81,6 +81,9 @@ body {
   font-size: 72px;
   margin-top: 50px;
 }
+.aurelia-dialog {
+  color: black;
+}
 .fade-text-animation-add {
   -webkit-animation: fadeIn 2s;
   animation: fadeIn 2s;

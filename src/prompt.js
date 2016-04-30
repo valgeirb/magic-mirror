@@ -5,8 +5,6 @@ import {inject}           from 'aurelia-framework';
 export class Prompt {
   constructor(controller) {
     this.controller = controller;
-    this.answer = null;
-
     controller.settings.lock = false;
   }
   activate(error) {

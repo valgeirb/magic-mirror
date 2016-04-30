@@ -10,7 +10,7 @@ Before getting started with the app, you must first configure some things.
 1. Get yourself a Forecast API key from their [website](https://developer.forecast.io/).
 2. Create a `mirror-config.js`, using `mirror-config-example.js` as a template.
 3. Replace the example values in the file with your API key, preferred units and language.
-4. The `custom-date.js` class uses Moment with the Icelandic language, you can edit that like you want.
+4. The `date.js` class uses Moment with the Icelandic language, you can edit that like you want.
 5. Pull requests are encouraged =)
 
 ## Running The App
